@@ -1,0 +1,24 @@
+<div class="logo-slider">
+    <div class="logo-slides" [ngStyle]="{'transform': 'translateX(' + (-currentLogoSlide * 100 / logosPerSlide) + '%)'}">
+      <div *ngFor="let chunk of logoChunks" 
+           class="logo-slide">
+        <div class="logo-item" *ngFor="let logo of chunk">
+          <img [src]="logo.image" alt="Logo" class="logo">
+        </div>
+      </div>
+    </div>
+  
+    <div class="logo-controls">
+      <div class="prev" (click)="prevLogoSlide()">&#8249;</div>
+      <div class="next" (click)="nextLogoSlide()">&#8250;</div>
+    </div>
+  
+    <div class="logo-dots">
+      <span *ngFor="let chunk of logoChunks; let i = index"
+            class="dot" 
+            [ngClass]="{'active': i === currentLogoSlide}"
+            (click)="setLogoSlide(i)">
+      </span>
+    </div>
+  </div>
+  

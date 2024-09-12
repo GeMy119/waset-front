@@ -1,0 +1,146 @@
+/* home.component.css */
+
+.container {
+  padding: 20px;
+}
+
+.section-title {
+  color: #3c763d;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  direction: rtl;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+  direction: rtl;
+}
+
+.col-form-label {
+  font-weight: bold;
+}
+
+.btn-success {
+  background-color: #4CAF50;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.service-price {
+  direction: rtl;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.icon-img {
+  max-height: 80px;
+  margin-bottom: 15px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+.accreditation-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  text-align: right;
+}
+
+.title {
+  color: green;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.payment-options {
+  width: 100%;
+  display: flex;
+  direction: rtl;
+  gap: 10px;
+  align-items: space-between;
+}
+
+.terms {
+  display: flex;
+  direction: rtl;
+}
+
+.submit-btn {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.submit-btn:hover {
+  background-color: darkgreen;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}

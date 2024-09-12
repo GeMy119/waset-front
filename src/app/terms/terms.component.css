@@ -1,0 +1,43 @@
+.terms-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .terms-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  
+  h3 {
+    color: #28a745;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  p, ul {
+    color: black;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin-right: 20px;
+  }
+  
+  .footer-text {
+    margin-top: 20px;
+    color: #28a745;
+    text-align: center;
+  }
+  

@@ -1,0 +1,66 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white" dir="rtl">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" aria-current="page">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/request-accreditation" routerLinkActive="active">طلب تعميد</a>
+          </li>
+          <!-- الأسئلة الشائعة Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="faqDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" routerLinkActive="active">
+              الأسئلة الشائعة
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="faqDropdown">
+              <li><a class="dropdown-item" routerLink="/about-us" routerLinkActive="active">من نحن</a></li>
+              <li><a class="dropdown-item" routerLink="/terms" routerLinkActive="active">الشروط والأحكام</a></li>
+              <li><a class="dropdown-item" routerLink="/platform-commission" routerLinkActive="active">عمولة المنصة</a>
+              </li>
+            </ul>
+          </li>
+          <!-- خدماتنا Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" routerLink="/services" routerLinkActive="active">
+              خدماتنا
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" routerLink="/cancel-service" routerLinkActive="active">إلغاء تعميد</a></li>
+              <li><a class="dropdown-item" routerLink="/refund-service" routerLinkActive="active">استرجاع تعميد</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us" routerLinkActive="active">اتصل بنا</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="login-link" *ngIf="!isLoggedIn">
+        <a class="nav-link ms-3" routerLink="/login" routerLinkActive="active">تسجيل دخول</a>
+      </div>
+      <div class="Reg-link" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">إنشاء حساب</a>
+      </div>
+      <div class="logout-link" *ngIf="isLoggedIn">
+        <button class="nav-link" (click)="logout()">تسجيل خروج</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="logo-titles">
+    <div class="titles">
+      <h1 class="ministry">منصة وسيط</h1>
+      <h2 class="kingdom">لخدمات التعميد</h2>
+    </div>
+    <img src="../../assets/logo.jpeg" alt="Logo" class="logo">
+  </div>
+</header>

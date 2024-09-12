@@ -1,0 +1,153 @@
+<div class="accreditation-form my-5">
+    <h2 class="title">طلب تعميد</h2>
+
+
+
+    <form [formGroup]="baptismRequestForm" (ngSubmit)="onSubmit()">
+        <div class="form-section">
+            <h3>1- بيانات صاحب الطلب</h3>
+            <div class="form-group">
+                <label for="requester-name">اسم صاحب الطلب *</label>
+                <input type="text" id="requester-name" class="form-control" formControlName="applicantName"
+                    placeholder="اسم صاحب الطلب">
+                <div *ngIf="baptismRequestForm.get('applicantName')?.invalid && (baptismRequestForm.get('applicantName')?.touched || baptismRequestForm.get('applicantName')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('applicantName')?.errors?.required">هذا الحقل مطلوب.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="requester-id">رقم صاحب الطلب *</label>
+                <input type="text" id="requester-id" class="form-control" formControlName="whatsAppUser"
+                    placeholder="SA">
+                <div *ngIf="baptismRequestForm.get('whatsAppUser')?.invalid && (baptismRequestForm.get('whatsAppUser')?.touched || baptismRequestForm.get('whatsAppUser')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('whatsAppUser')?.errors?.required">هذا الحقل مطلوب.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>2- بيانات مقدم الخدمة</h3>
+            <div class="form-group">
+                <label for="provider-name">اسم مقدم الخدمة *</label>
+                <input type="text" id="provider-name" class="form-control" formControlName="nameOfTheServiceProvider"
+                    placeholder="اسم مقدم الخدمة">
+                <div *ngIf="baptismRequestForm.get('nameOfTheServiceProvider')?.invalid && (baptismRequestForm.get('nameOfTheServiceProvider')?.touched || baptismRequestForm.get('nameOfTheServiceProvider')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('nameOfTheServiceProvider')?.errors?.required">هذا الحقل
+                        مطلوب.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="provider-id">رقم مقدم الخدمة *</label>
+                <input type="text" id="provider-id" class="form-control" formControlName="whatsAppServicProvider"
+                    placeholder="SA">
+                <div *ngIf="baptismRequestForm.get('whatsAppServicProvider')?.invalid && (baptismRequestForm.get('whatsAppServicProvider')?.touched || baptismRequestForm.get('whatsAppServicProvider')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('whatsAppServicProvider')?.errors?.required">هذا الحقل
+                        مطلوب.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>3- تفاصيل الاتفاق</h3>
+            <div class="form-group">
+                <label for="agreement-details">تفاصيل الاتفاق *</label>
+                <textarea id="agreement-details" class="form-control" formControlName="agreementDetails"
+                    placeholder="تفاصيل الاتفاق"></textarea>
+                <div *ngIf="baptismRequestForm.get('agreementDetails')?.invalid && (baptismRequestForm.get('agreementDetails')?.touched || baptismRequestForm.get('agreementDetails')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('agreementDetails')?.errors?.required">هذا الحقل مطلوب.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="baptism-period">مدة التعميد بالايام *</label>
+                <input type="number" id="baptism-period" class="form-control" formControlName="baptismPeriod"
+                    placeholder="عدد الأيام">
+                <div *ngIf="baptismRequestForm.get('baptismPeriod')?.invalid && (baptismRequestForm.get('baptismPeriod')?.touched || baptismRequestForm.get('baptismPeriod')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('baptismPeriod')?.errors?.required">هذا الحقل مطلوب.</small>
+                    <small *ngIf="baptismRequestForm.get('baptismPeriod')?.errors?.min">يجب أن تكون القيمة أكبر من أو
+                        تساوي 1.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="theDayTheBaptismEnded">يوم انتهاء التعميد *</label>
+                <input type="text" id="theDayTheBaptismEnded" class="form-control"
+                    formControlName="theDayTheBaptismEnded" placeholder="dd/mm/yyyy">
+                <div *ngIf="baptismRequestForm.get('theDayTheBaptismEnded')?.invalid && (baptismRequestForm.get('theDayTheBaptismEnded')?.touched )"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('theDayTheBaptismEnded')?.errors?.required">هذا الحقل
+                        مطلوب.</small>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="service-price row">
+                <div class="form-group col-md-6">
+                    <label for="servicePrice">مبلغ التعميد *</label>
+                    <input type="number" id="servicePrice" class="form-control" formControlName="servicePrice"
+                        placeholder="سعر الخدمة">
+                </div>
+                <div class="col-md-6">
+                    <h5 class="section-title">
+                        رسوم الخدمة :
+                    </h5>
+                    <p>50 ريال للمبلغ 500 ريال أو اقل ..
+                        <br>
+                        100 ريال للمبلغ 3000 ريال أو اقل ..
+                        <br>
+                        3% من مبلغ التعميد اذا اكثر من 3000 ريال ..
+                    </p>
+                </div>
+                <div *ngIf="baptismRequestForm.get('servicePrice')?.invalid && (baptismRequestForm.get('servicePrice')?.touched || baptismRequestForm.get('servicePrice')?.dirty)"
+                    class="text-danger">
+                    <small *ngIf="baptismRequestForm.get('servicePrice')?.errors?.required">هذا الحقل مطلوب.</small>
+                    <small *ngIf="baptismRequestForm.get('servicePrice')?.errors?.min">يجب أن تكون القيمة أكبر من أو
+                        تساوي 0.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>4- طريقة الدفع</h3>
+            <div class="form-group">
+                <label>طريقة الدفع *</label>
+                <div class="payment-options ">
+                    <label for="bank">تحويل بنكي</label>
+                    <input type="radio" id="bank" value="bank">
+
+                    <label for="balance">بطاقة إئتمانية</label>
+                    <input type="radio" id="balance" value="balance">
+
+                    <label for="balance">بطاقة مدي</label>
+                    <input type="radio" id="balance" value="balance">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="d-flex terms">
+                    <input class="ms-2" type="checkbox" id="agree-terms" formControlName="agreeTerms">
+                    <label for="agree-terms">أوافق على الشروط والأحكام *</label>
+
+                </div>
+
+                <div *ngIf="baptismRequestForm.get('agreeTerms')?.invalid && (baptismRequestForm.get('agreeTerms')?.touched || baptismRequestForm.get('agreeTerms')?.dirty)"
+                    class="text-danger">
+                    <small>يجب الموافقة على الشروط والأحكام.</small>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="baptismRequestForm.invalid">إتمام فتح التعميد</button>
+        <div *ngIf="successMessage" class="alert alert-success mt-3">
+            {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+            {{ errorMessage }}
+        </div>
+    </form>
+</div>

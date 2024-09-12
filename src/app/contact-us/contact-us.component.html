@@ -1,0 +1,65 @@
+<div class="contact-us-container my-5">
+  <h2 class="title text-center">اتصل بنا</h2>
+
+  <div class="content-wrapper">
+    <!-- Google Map of Saudi Arabia -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.8948080272734!2d46.67394767687881!3d24.7135515486635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03e8f650eac7%3A0x2c0af025d1146ff2!2sRiyadh!5e0!3m2!1sen!2ssa!4v1694290679612!5m2!1sen!2ssa"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Contact Form -->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="userName">الاسم</label>
+        <input type="text" id="userName" formControlName="userName" />
+        <div *ngIf="contactForm.get('userName').invalid && contactForm.get('userName').touched" class="error-message">
+          يرجى إدخال الاسم.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" formControlName="email" />
+        <div *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched" class="error-message">
+          يرجى إدخال بريد إلكتروني صالح.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phoneN">رقم الجوال</label>
+        <input type="text" id="phoneN" formControlName="phoneN" />
+        <div *ngIf="contactForm.get('phoneN').invalid && contactForm.get('phoneN').touched" class="error-message">
+          يرجى إدخال رقم الجوال.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">الموضوع</label>
+        <textarea id="subject" formControlName="subject"></textarea>
+        <div *ngIf="contactForm.get('subject').invalid && contactForm.get('subject').touched" class="error-message">
+          يرجى إدخال الموضوع.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" formControlName="subscribe" />
+          أرغب بالإشتراك للحصول على العروض وأخر الأخبار
+        </label>
+      </div>
+
+      <div class="form-group">
+        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+      </div>
+
+      <button type="submit" class="submit-button" [disabled]="contactForm.invalid">إرسال الطلب</button>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

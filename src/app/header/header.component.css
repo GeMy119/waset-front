@@ -1,0 +1,88 @@
+/* Center the navbar menu */
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar {
+  flex: 1;
+}
+
+/* Styling for login link */
+.login-link {
+  margin-left: auto;
+}
+.register-link{
+  margin-left: auto;
+}
+
+/* Additional styling (unchanged) */
+.header {
+  background-color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Cairo', sans-serif;
+}
+
+.logo-titles {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 10px;
+  margin-top: -5px;
+  width: 130px;
+  height: 130px;
+}
+
+.titles {
+  text-align: right;
+}
+
+.ministry {
+  color: #008000;
+  font-size: 24px;
+  margin: 0;
+}
+
+.kingdom {
+  color: #000;
+  font-size: 20px;
+  margin: 0;
+}
+
+.navbar {
+  margin-left:200px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-left:20px;
+}
+
+.navbar-nav .nav-link {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link.active {
+  border-bottom: 2px solid black;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #28a745;
+}
+
+.dropdown-item.active {
+  background-color: #28a745;
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #28a745;
+  color: white;
+}
+

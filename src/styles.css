@@ -1,0 +1,14 @@
+body,
+html {
+    font-family: 'Cairo', sans-serif;
+}
+
+.error-message {
+    color: red !important;
+    /* لون الخط الأحمر */
+}
+
+.success-message {
+    color: green;
+    /* لون الخط الأخضر */
+}

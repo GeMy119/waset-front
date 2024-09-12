@@ -1,0 +1,57 @@
+.document-container {
+    max-width: 600px;
+    /* Increase the width for larger screens */
+    margin: 0 auto;
+    background-color: #f0f8f8;
+    /* Light background similar to the image */
+    border-radius: 5px;
+    padding: 20px;
+    font-family: 'Amiri', Arial, sans-serif;
+    text-align: right;
+    /* Align content to the right */
+}
+
+.document-field {
+    margin-bottom: 20px;
+}
+
+.document-label {
+    display: block;
+    font-weight: bold;
+    color: green;
+    /* Make the labels green */
+    margin-bottom: 5px;
+}
+
+.document-value {
+    background-color: #e7eaf3;
+    /* Same as the field background color in the image */
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    /* Darker text for better readability */
+}
+
+.description {
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .document-container {
+        max-width: 100%;
+        /* Adjust width for smaller screens */
+        padding: 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .document-container {
+        max-width: 800px;
+        /* Further increase the width for very large screens */
+    }
+}

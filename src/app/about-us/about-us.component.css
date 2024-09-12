@@ -1,0 +1,35 @@
+.about-us-container {
+    margin: 20px;
+  }
+  
+  .about-us-container .row {
+    display: flex;
+    align-items: center;
+    text-align: right; /* Align text to the right */
+  }
+  
+  .about-us-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-container h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-container h3 {
+    color: #28a745;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .about-us-container p {
+    color: black;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  

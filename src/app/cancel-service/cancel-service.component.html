@@ -1,0 +1,104 @@
+<div class="cancel-service-container my-5">
+  <h1>إلغاء تعميد</h1>
+  <div class="icon">
+    <img src="../../assets/logo.jpeg" alt="icon" />
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+
+  <form [formGroup]="cancleBaptismForm" (ngSubmit)="onSubmit()">
+    <!-- بيانات صاحب الطلب -->
+    <div class="section">
+      <h3>1- بيانات صاحب الطلب</h3>
+      <div class="form-group">
+        <label for="applicantName">اسم صاحب الطلب *</label>
+        <input type="text" id="applicantName" name="applicantName" required />
+      </div>
+      <div class="form-group">
+        <label for="applicantId">رقم صاحب الطلب *</label>
+        <input type="text" id="applicantId" name="applicantId" required />
+      </div>
+    </div>
+
+    <!-- بيانات مقدم الخدمة -->
+    <div class="section">
+      <h3>2- بيانات مقدم الخدمة *</h3>
+      <div class="form-group">
+        <label for="providerName">اسم مقدم الخدمة *</label>
+        <input type="text" id="providerName" name="providerName" required />
+      </div>
+      <div class="form-group">
+        <label for="providerId">رقم مقدم الخدمة *</label>
+        <input type="text" id="providerId" name="providerId" required />
+      </div>
+    </div>
+
+    <!-- سبب إلغاء التعميد -->
+    <div class="section">
+      <h3>3- سبب إلغاء التعميد *</h3>
+      <div class="form-group">
+        <label for="cancellationReason">سبب إلغاء التعميد *</label>
+        <input type="text" id="cancellationReason" formControlName="cancellationReason" [(ngModel)]="cancellationReason"
+          name="cancellationReason" required />
+      </div>
+      <div
+        *ngIf="cancleBaptismForm.get('cancellationReason')?.invalid && (cancleBaptismForm.get('cancellationReason')?.touched || cancleBaptismForm.get('agreementDetails')?.dirty)"
+        class="text-danger">
+        <small *ngIf="cancleBaptismForm.get('cancellationReason')?.errors?.required">هذا الحقل مطلوب.</small>
+      </div>
+    </div>
+
+    <!-- رقم التعميد -->
+    <div class="section">
+      <h3>4- رقم التعميد *</h3>
+      <div class="form-group">
+        <label for="baptismNumber">رقم التعميد *</label>
+        <input type="text" id="baptismNumber" formControlName="baptismNumber" [(ngModel)]="baptismNumber"
+          name="baptismNumber" required />
+        <div
+          *ngIf="cancleBaptismForm.get('baptismNumber')?.invalid && (cancleBaptismForm.get('baptismNumber')?.touched || cancleBaptismForm.get('baptismNumber')?.dirty)"
+          class="text-danger">
+          <small *ngIf="cancleBaptismForm.get('baptismNumber')?.errors?.required">هذا الحقل
+            مطلوب.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="completionDate">يوم إنهاء التعميد</label>
+        <input type="text" id="completionDate" name="completionDate" />
+      </div>
+      <div class="form-group">
+        <label for="serviceAmount">مبلغ التعميد</label>
+        <input type="number" id="serviceAmount" name="serviceAmount" />
+      </div>
+    </div>
+
+    <!-- طريقة الدفع -->
+    <div class="section">
+      <h3>5- طريقة الدفع *</h3>
+      <div class="form-group">
+        <label><input type="radio" name="paymentMethod" value="تحويل بنكي" required /> تحويل بنكي</label>
+        <label><input type="radio" name="paymentMethod" value="بطاقة ائتمانية" required /> بطاقة ائتمانية</label>
+        <label><input type="radio" name="paymentMethod" value="بطاقة مدى" required /> بطاقة مدى</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input type="checkbox" formControlName="agreeTerms" [(ngModel)]="agreeTerms" name="agreeTerms" required />
+        أقر بأنني قرأت ووافقت على الشروط والأحكام
+      </label>
+      <div
+        *ngIf="cancleBaptismForm.get('agreeTerms')?.invalid && (cancleBaptismForm.get('agreeTerms')?.touched || cancleBaptismForm.get('agreeTerms')?.dirty)"
+        class="text-danger">
+        <small>يجب الموافقة على الشروط والأحكام.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-button" [disabled]="cancleBaptismForm.invalid">إلغاء التعميد</button>
+  </form>
+</div>
