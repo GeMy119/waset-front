@@ -4,6 +4,7 @@ export interface Environment {
 }
 export const environment: Environment = {
   production: true,
-  apiUrl: "http://localhost:8080"
+  // apiUrl: "https://api.minasatwasit.com"
+  apiUrl: "http://localhost:8001"
 };
 

@@ -15,6 +15,7 @@ export class CancelServiceComponent {
   cancellationReason: string = ''; // Declare the cancellationReason property
   baptismNumber: string = ''; // Declare the cancellationReason property
   agreeTerms: boolean = false; // Declare the cancellationReason property
+  loading: boolean = false
 
   constructor(private fb: FormBuilder, private CancelServiceService: CancelServiceService, private router: Router) {
     this.cancleBaptismForm = this.fb.group({
@@ -25,9 +26,14 @@ export class CancelServiceComponent {
   }
 
   ngOnInit(): void { }
-
+  resetLoading(): void {
+    this.loading = false; // إعادة تعيين حالة التحميل
+    this.errorMessage = null
+    this.successMessage = null
+  }
   onSubmit() {
     if (this.cancleBaptismForm.valid) {
+      this.loading = true
       this.CancelServiceService.cancleBaptism(this.cancleBaptismForm.value).subscribe({
         next: (response) => {
           this.successMessage = 'تم الإلغاء بنجاح!'; // تعيين رسالة النجاح
@@ -43,6 +49,9 @@ export class CancelServiceComponent {
           } else {
             this.errorMessage = 'حدث خطأ أثناء الغاء الطلب'; // رسالة خطأ عامة
           }
+        },
+        complete: () => {
+          this.loading = false
         }
       });
     } else {

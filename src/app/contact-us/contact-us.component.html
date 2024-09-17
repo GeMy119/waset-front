@@ -14,7 +14,7 @@
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="userName">الاسم</label>
-        <input type="text" id="userName" formControlName="userName" />
+        <input type="text" id="userName" (input)="resetLoading()" formControlName="userName" />
         <div *ngIf="contactForm.get('userName').invalid && contactForm.get('userName').touched" class="error-message">
           يرجى إدخال الاسم.
         </div>
@@ -22,7 +22,7 @@
 
       <div class="form-group">
         <label for="email">البريد الإلكتروني</label>
-        <input type="email" id="email" formControlName="email" />
+        <input type="email" id="email" (input)="resetLoading()" formControlName="email" />
         <div *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched" class="error-message">
           يرجى إدخال بريد إلكتروني صالح.
         </div>
@@ -30,7 +30,7 @@
 
       <div class="form-group">
         <label for="phoneN">رقم الجوال</label>
-        <input type="text" id="phoneN" formControlName="phoneN" />
+        <input type="text" id="phoneN" (input)="resetLoading()" formControlName="phoneN" />
         <div *ngIf="contactForm.get('phoneN').invalid && contactForm.get('phoneN').touched" class="error-message">
           يرجى إدخال رقم الجوال.
         </div>
@@ -38,7 +38,7 @@
 
       <div class="form-group">
         <label for="subject">الموضوع</label>
-        <textarea id="subject" formControlName="subject"></textarea>
+        <textarea id="subject" (input)="resetLoading()" formControlName="subject"></textarea>
         <div *ngIf="contactForm.get('subject').invalid && contactForm.get('subject').touched" class="error-message">
           يرجى إدخال الموضوع.
         </div>
@@ -55,8 +55,10 @@
         <div class="g-recaptcha" data-sitekey="your_site_key"></div>
       </div>
 
-      <button type="submit" class="submit-button" [disabled]="contactForm.invalid">إرسال الطلب</button>
-
+      <button type="submit" class="submit-button" [disabled]="contactForm.invalid && loading">إرسال الطلب</button>
+      <div *ngIf="successMessage" class="alert alert-success mt-3">
+        {{ successMessage }}
+      </div>
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>

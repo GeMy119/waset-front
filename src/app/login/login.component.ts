@@ -21,7 +21,11 @@ export class LoginComponent {
       password: ['', Validators.required]
     });
   }
-
+  resetLoading(): void {
+    this.loading = false; // إعادة تعيين حالة التحميل
+    this.errorMessage = null
+    this.successMessage = null
+  }
   onSubmit() {
     if (this.loginForm.valid) {
       this.loading = true; // Start loading
