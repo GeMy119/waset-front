@@ -39,7 +39,6 @@
           المتفق معه ويتم نشر تفاصيل الإتفاق كاملةً بالقروب ونضمن لك تنفيذ الإتفاق في مقابل نسبة من مبلغ الاتفاق .</p>
       </div>
     </div>
-
     <!-- Section: Service Request Form -->
     <div class="col-md-6 text-right">
       <h2 class="section-title text-right">طلب إعتماد خدمة</h2>
@@ -48,8 +47,8 @@
           <h3>1- بيانات صاحب الطلب</h3>
           <div class="form-group">
             <label for="requester-name">اسم صاحب الطلب *</label>
-            <input type="text" id="requester-name" class="form-control" formControlName="applicantName"
-              placeholder="اسم صاحب الطلب">
+            <input type="text" id="requester-name" (input)="resetLoading()" class="form-control"
+              formControlName="applicantName" placeholder="اسم صاحب الطلب">
             <div
               *ngIf="baptismRequestForm.get('applicantName')?.invalid && (baptismRequestForm.get('applicantName')?.touched || baptismRequestForm.get('applicantName')?.dirty)"
               class="text-danger">
@@ -58,7 +57,8 @@
           </div>
           <div class="form-group">
             <label for="requester-id">رقم صاحب الطلب *</label>
-            <input type="text" id="requester-id" class="form-control" formControlName="whatsAppUser" placeholder="SA">
+            <input type="text" id="requester-id" (input)="resetLoading()" class="form-control"
+              formControlName="whatsAppUser" placeholder="SA">
             <div
               *ngIf="baptismRequestForm.get('whatsAppUser')?.invalid && (baptismRequestForm.get('whatsAppUser')?.touched || baptismRequestForm.get('whatsAppUser')?.dirty)"
               class="text-danger">
@@ -71,8 +71,8 @@
           <h3>2- بيانات مقدم الخدمة</h3>
           <div class="form-group">
             <label for="provider-name">اسم مقدم الخدمة *</label>
-            <input type="text" id="provider-name" class="form-control" formControlName="nameOfTheServiceProvider"
-              placeholder="اسم مقدم الخدمة">
+            <input type="text" id="provider-name" (input)="resetLoading()" class="form-control"
+              formControlName="nameOfTheServiceProvider" placeholder="اسم مقدم الخدمة">
             <div
               *ngIf="baptismRequestForm.get('nameOfTheServiceProvider')?.invalid && (baptismRequestForm.get('nameOfTheServiceProvider')?.touched || baptismRequestForm.get('nameOfTheServiceProvider')?.dirty)"
               class="text-danger">
@@ -82,8 +82,8 @@
           </div>
           <div class="form-group">
             <label for="provider-id">رقم مقدم الخدمة *</label>
-            <input type="text" id="provider-id" class="form-control" formControlName="whatsAppServicProvider"
-              placeholder="SA">
+            <input type="text" id="provider-id" (input)="resetLoading()" class="form-control"
+              formControlName="whatsAppServicProvider" placeholder="SA">
             <div
               *ngIf="baptismRequestForm.get('whatsAppServicProvider')?.invalid && (baptismRequestForm.get('whatsAppServicProvider')?.touched || baptismRequestForm.get('whatsAppServicProvider')?.dirty)"
               class="text-danger">
@@ -97,8 +97,8 @@
           <h3>3- تفاصيل الاتفاق</h3>
           <div class="form-group">
             <label for="agreement-details">تفاصيل الاتفاق *</label>
-            <textarea id="agreement-details" class="form-control" formControlName="agreementDetails"
-              placeholder="تفاصيل الاتفاق"></textarea>
+            <textarea id="agreement-details" (input)="resetLoading()" class="form-control"
+              formControlName="agreementDetails" placeholder="تفاصيل الاتفاق"></textarea>
             <div
               *ngIf="baptismRequestForm.get('agreementDetails')?.invalid && (baptismRequestForm.get('agreementDetails')?.touched || baptismRequestForm.get('agreementDetails')?.dirty)"
               class="text-danger">
@@ -108,8 +108,8 @@
 
           <div class="form-group">
             <label for="baptism-period">مدة التعميد بالايام *</label>
-            <input type="number" id="baptism-period" class="form-control" formControlName="baptismPeriod"
-              placeholder="عدد الأيام">
+            <input type="number" id="baptism-period" (input)="resetLoading()" class="form-control"
+              formControlName="baptismPeriod" placeholder="عدد الأيام">
             <div
               *ngIf="baptismRequestForm.get('baptismPeriod')?.invalid && (baptismRequestForm.get('baptismPeriod')?.touched || baptismRequestForm.get('baptismPeriod')?.dirty)"
               class="text-danger">
@@ -120,8 +120,8 @@
           </div>
           <div class="form-group">
             <label for="theDayTheBaptismEnded">يوم انتهاء التعميد *</label>
-            <input type="text" id="theDayTheBaptismEnded" class="form-control" formControlName="theDayTheBaptismEnded"
-              placeholder="dd/mm/yyyy">
+            <input type="text" (input)="resetLoading()" id="theDayTheBaptismEnded" class="form-control"
+              formControlName="theDayTheBaptismEnded" placeholder="dd/mm/yyyy">
             <div
               *ngIf="baptismRequestForm.get('theDayTheBaptismEnded')?.invalid && (baptismRequestForm.get('theDayTheBaptismEnded')?.touched )"
               class="text-danger">
@@ -134,8 +134,8 @@
           <div class="service-price row">
             <div class="form-group col-md-6">
               <label for="servicePrice">مبلغ التعميد *</label>
-              <input type="number" id="servicePrice" class="form-control" formControlName="servicePrice"
-                placeholder="سعر الخدمة">
+              <input type="number" (input)="resetLoading()" id="servicePrice" class="form-control"
+                formControlName="servicePrice" placeholder="سعر الخدمة">
             </div>
             <div class="col-md-6">
               <h5 class="section-title">
@@ -163,15 +163,9 @@
           <div class="form-group">
             <label>طريقة الدفع *</label>
             <div class="payment-options ">
-              <label for="bank">تحويل بنكي</label>
-              <input type="radio" id="bank" value="bank">
-
-              <label for="balance">بطاقة إئتمانية</label>
-              <input type="radio" id="balance" value="balance">
-
-              <label for="balance">بطاقة مدي</label>
-              <input type="radio" id="balance" value="balance">
-
+              <label><input type="radio" name="paymentMethod" value="تحويل بنكي" required /> تحويل بنكي</label>
+              <label><input type="radio" name="paymentMethod" value="بطاقة ائتمانية" /> بطاقة ائتمانية</label>
+              <label><input type="radio" name="paymentMethod" value="بطاقة مدى" /> بطاقة مدى</label>
             </div>
           </div>
 
@@ -181,7 +175,6 @@
               <label for="agree-terms">أوافق على الشروط والأحكام *</label>
 
             </div>
-
             <div
               *ngIf="baptismRequestForm.get('agreeTerms')?.invalid && (baptismRequestForm.get('agreeTerms')?.touched || baptismRequestForm.get('agreeTerms')?.dirty)"
               class="text-danger">
@@ -190,7 +183,8 @@
           </div>
         </div>
 
-        <button type="submit" class="submit-btn" [disabled]="baptismRequestForm.invalid">إتمام فتح التعميد</button>
+        <button type="submit" class="submit-btn" [disabled]="baptismRequestForm.invalid && loading">إتمام فتح
+          التعميد</button>
         <div *ngIf="successMessage" class="alert alert-success mt-3">
           {{ successMessage }}
         </div>

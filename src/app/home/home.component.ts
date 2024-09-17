@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   baptismRequestForm: FormGroup;
   successMessage: string | null = null; // متغير لتخزين رسالة النجاح
   errorMessage: string | null = null; // متغير لتخزين رسالة الخطأ
+  loading: boolean = false
 
   constructor(private authService: AuthService, private fb: FormBuilder, private requestAccreditationService: RequestAccreditationService) {
     this.baptismRequestForm = this.fb.group({
@@ -30,8 +31,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  resetLoading(): void {
+    this.loading = false; // إعادة تعيين حالة التحميل
+    this.errorMessage = null
+    this.successMessage = null
+  }
   onSubmit() {
     if (this.baptismRequestForm.valid) {
+      this.loading = true
       this.requestAccreditationService.createBaptism(this.baptismRequestForm.value).subscribe({
         next: (response) => {
           // console.log('Baptism request created successfully', response);
@@ -48,6 +55,9 @@ export class HomeComponent implements OnInit {
           } else {
             this.errorMessage = 'حدث خطأ أثناء تسجيل الطلب'; // رسالة خطأ عامة
           }
+        },
+        complete: () => {
+          this.loading = false
         }
       });
     } else {
