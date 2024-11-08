@@ -17,10 +17,10 @@ export class CancelServiceService {
     // الحصول على التوكن من localStorage
     const token = localStorage.getItem('token');
 
-    // إعداد هيدرز الطلب مع التوكن
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}` // إضافة التوكن إلى هيدرز الطلب
-    });
-    return this.http.post(`${this.apiUrl}/cancleBaptism`, data, { headers });
+    return this.http.post(`${this.apiUrl}/cancleBaptism`, data,
+      {
+        headers: token ? new HttpHeaders({ 'Authorization': `Bearer ${token}` }) : undefined
+      }
+    );
   }
 }

@@ -16,11 +16,14 @@ export class RequestAccreditationService {
     // الحصول على التوكن من localStorage
     const token = localStorage.getItem('token');
 
-    // إعداد هيدرز الطلب مع التوكن
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}` // إضافة التوكن إلى هيدرز الطلب
-    });
-    return this.http.post(`${this.apiUrl}/createBaptism`, data, { headers });
+    // إرسال الطلب مع أو بدون هيدرز بناءً على وجود التوكن
+    return this.http.post(
+      `${this.apiUrl}/createBaptism`,
+      data,
+      {
+        headers: token ? new HttpHeaders({ 'Authorization': `Bearer ${token}` }) : undefined
+      }
+    );
   }
 }
 
